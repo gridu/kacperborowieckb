@@ -12,5 +12,32 @@ describe('task3', () => {
     mockDate.reset();
   });
 
-  // write your tests here
+  it('returns correct date without argument passed', () => {
+    mockDate.set({ isoDate: '2019-03-05T15:00:00.000Z' });
+
+    expect(getUtcStringDate()).toBe('2019-03-05T15:00:00.000Z');
+  });
+
+  it('returns correct date with argument passed', () => {
+    const now = new Date('2019-03-05T15:00:00.000Z');
+
+    expect(getUtcStringDate(now)).toBe('2019-03-05T15:00:00.000Z');
+  });
+
+  it('returns correct date without argument passed and with timezone offset', () => {
+    mockDate.set({
+      isoDate: '2019-03-05 15:00:00',
+      offset: 120,
+    });
+
+    expect(getUtcStringDate()).toBe('2019-03-05T13:00:00.000Z');
+  });
+
+  it('returns correct date with argument passed and with timezone offset', () => {
+    mockDate.set({ offset: 180 });
+
+    const now = new Date('2019-03-05 15:00:00');
+
+    expect(getUtcStringDate(now)).toBe('2019-03-05T13:00:00.000Z');
+  });
 });
