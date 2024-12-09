@@ -35,7 +35,6 @@ Good luck!
 
 - [`.toThrow(error?)`](https://jestjs.io/docs/expect#tothrowerror)
 
-
 ---
 
 [Back to the main page](../README.md)
