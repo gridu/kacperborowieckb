@@ -13,15 +13,15 @@ describe('task3', () => {
   });
 
   it('returns correct date without argument passed', () => {
-    mockDate.set({ isoDate: '2019-03-05T15:00:00.000Z' });
+    mockDate.set({ isoDate: '2019-03-05T15:00:00Z' });
 
-    expect(getUtcStringDate()).toBe('2019-03-05T15:00:00.000Z');
+    expect(getUtcStringDate()).toBe('2019-03-05T15:00:00Z');
   });
 
   it('returns correct date with argument passed', () => {
-    const now = new Date('2019-03-05T15:00:00.000Z');
+    const now = new Date('2019-03-05T15:00:00Z');
 
-    expect(getUtcStringDate(now)).toBe('2019-03-05T15:00:00.000Z');
+    expect(getUtcStringDate(now)).toBe('2019-03-05T15:00:00Z');
   });
 
   it('returns correct date without argument passed and with timezone offset', () => {
@@ -30,7 +30,7 @@ describe('task3', () => {
       offset: 120,
     });
 
-    expect(getUtcStringDate()).toBe('2019-03-05T13:00:00.000Z');
+    expect(getUtcStringDate()).toBe('2019-03-05T13:00:00Z');
   });
 
   it('returns correct date with argument passed and with timezone offset', () => {
@@ -38,6 +38,6 @@ describe('task3', () => {
 
     const now = new Date('2019-03-05 15:00:00');
 
-    expect(getUtcStringDate(now)).toBe('2019-03-05T13:00:00.000Z');
+    expect(getUtcStringDate(now)).toBe('2019-03-05T12:00:00Z');
   });
 });

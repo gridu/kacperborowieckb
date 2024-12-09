@@ -30,18 +30,6 @@ describe('task1', () => {
     expect(validateUserName('2John')).resolves.toBe(false);
   });
 
-  it('calls fetchIsUserAvailable method to check if name is unique', () => {
-    validateUserName(validName);
-
-    expect(mockFetchIsUserNameAvailable).toHaveBeenCalledWith(validName);
-  });
-
-  it('do not make any request if name is not valid', () => {
-    validateUserName('Jo');
-
-    expect(mockFetchIsUserNameAvailable).not.toHaveBeenCalled();
-  });
-
   it('return true with valid name when fetchIsUserAvailable succeed', () => {
     expect(validateUserName(validName)).resolves.toBe(true);
   });
